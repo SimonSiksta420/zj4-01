@@ -54,6 +54,8 @@
         </div>
     </header>
 
+    <?php the_post_thumbnail('medium'); ?>
+
 </body>
 
 </html>

@@ -26,3 +26,6 @@ function themename_custom_logo_setup()
 }
 
 add_action('after_setup_theme', 'themename_custom_logo_setup');
+
+add_theme_support('post-thumbnails');
+the_post_thumbnail('150x150');
