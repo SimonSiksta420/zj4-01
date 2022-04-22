@@ -1,10 +1,34 @@
-<?php get_header() ?>
+<?php get_header() ;?>
 
-<h1> <?php the_title() ?> </h1>
+<?php
 
-<?php the_content(); ?>
+if (have_posts()) 
 
-<?php get_footer(); ?>
+while (have_posts()) : the_post(); 
+    
+?>
 
-</body>
-</html>
+<h1> <?php the_title() ;?> </h1>
+
+<?php the_author() ;?>
+
+<?php the_date() ;?>
+
+<?php the_content() ;?>
+
+<?php
+
+endwhile;
+
+else :
+
+?>
+
+<p>Žádné příspěvky nalezeny.</p>
+
+<?php
+
+endif;
+?>
+
+<?php get_footer() ;?>
