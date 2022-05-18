@@ -27,5 +27,12 @@ function themename_custom_logo_setup()
 
 add_action('after_setup_theme', 'themename_custom_logo_setup');
 
+add_theme_support( 'menus' ); // Podpora menu
+
 add_theme_support('post-thumbnails');
 the_post_thumbnail('150x150');
+
+register_nav_menus(array(
+    'primary' => __('Hlavní menu', 'themename'),
+    'footer'  => __('Footer menu', 'themename'),
+));
