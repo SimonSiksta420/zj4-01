@@ -1,6 +1,3 @@
-<?php wp_nav_menu( array(
-                'theme_location' => 'footer' )) ?>
-
 <footer>
     &copy; Victory gaming <?= date('Y'); ?>
 </footer>

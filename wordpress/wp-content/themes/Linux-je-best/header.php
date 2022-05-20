@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> <?php wp_title('|', true, 'right') ?> Gayming web </title>
 
-    <?php 
-    
+    <?php
+
     wp_head();
     get_custom_logo();
 
@@ -21,42 +21,34 @@
 
 <body>
 
-    <?php if ( function_exists( 'the_custom_logo' ) ) {
+    <?php if (function_exists('the_custom_logo')) {
         the_custom_logo();
     } ?>
 
     <header class="p-3 bg-dark text-white">
         <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-            <?php wp_nav_menu( array(
-                'theme_location' => 'primary',
-                
-            )) ?>
-
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                </a>
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-                </ul>
-
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" data-dashlane-rid="1e2679832d1e7d94" data-form-type="">
-                    <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search" data-dashlane-rid="bc06a5c1b8e83c43" data-form-type="">
-                </form>
-
-                <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+                    <div class="collapse navbar-collapse" id="main-menu">
+                        <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'main-menu',
+                            'container' => false,
+                            'menu_class' => '',
+                            'fallback_cb' => '__return_false',
+                            'items_wrap' => '<ul id="%1$s" class="navbar-nav me-auto mb-2 mb-md-0 %2$s">%3$s</ul>',
+                            'depth' => 2,
+                            'walker' => new bootstrap_5_wp_nav_menu_walker()
+                        ));
+                        ?>
+                    </div>
                 </div>
-            </div> 
-
+            </nav>
         </div>
     </header>
 
