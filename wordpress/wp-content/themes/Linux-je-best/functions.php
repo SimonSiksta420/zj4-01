@@ -32,6 +32,17 @@ add_theme_support('menus'); // Podpora menu
 add_theme_support('post-thumbnails');
 the_post_thumbnail('150x150');
 
+$url = 'https://bitpay.com/api/rates';
+$json = json_decode(file_get_contents($url));
+$dollar = $btc = 0;
+
+foreach ($json as $obj) {
+    if ($obj->code == 'USD') $btc = $obj->rate;
+}
+
+echo "1bitcoin-\$" . $btc . "USD <br />";
+
+
 // bootstrap 5 wp_nav_menu walker
 class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
 {
